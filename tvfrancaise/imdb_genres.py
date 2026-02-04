@@ -16,7 +16,6 @@ IMDB_BASICS_URL = "https://datasets.imdbws.com/title.basics.tsv.gz"  # IMDb Non-
 # 1) Typologie NORMALISÉE
 # ----------------------------
 # On mappe les genres IMDb (jusqu'à 3) vers 1 genre principal normalisé.
-# (Tu peux ajuster selon ton besoin d'analyse TV.)
 IMDB_TO_NORMALIZED = {
     "Animation": "Animation",
     "Comedy": "Comédie",
@@ -31,10 +30,10 @@ IMDB_TO_NORMALIZED = {
     "Romance": "Romance",
     "Thriller": "Thriller",
     "Horror": "Horreur",
-    "Mystery": "Policier",   # souvent proche “policier/enquête”
+    "Mystery": "Policier",
     "War": "Historique",
     "Biography": "Drame",
-    "Music": "Comédie",      # option: parfois Musical, à créer si tu veux
+    "Music": "Comédie",
     "Musical": "Comédie",
     "Sport": "Drame",
     "Western": "Aventure",
@@ -84,7 +83,7 @@ def download_if_needed(out_path: Path):
     print(f"OK: {out_path}")
 
 def load_user_csv(path_csv: str) -> pd.DataFrame:
-    # Ton fichier a des lignes “parasites” avant l’en-tête "titre;nb. de diffusions"
+    # Le fichier contient des lignes “parasites” avant l’en-tête "titre;nb. de diffusions"
     lines = Path(path_csv).read_text(encoding="utf-8", errors="replace").splitlines()
     header_index = next(i for i, l in enumerate(lines) if l.lower().startswith("titre;"))
     header = [c for c in lines[header_index].split(";") if c]

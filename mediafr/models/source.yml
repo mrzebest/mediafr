@@ -1,0 +1,58 @@
+version: 2
+
+sources:
+  - name: filmfr
+    description: "Source contenant les informations de diffusion et de matching IMDb des films"
+    database: mediafr-486313
+    schema: filmfr
+    tables:
+      - name: grid_external_filmfr   
+        description: "Table source films"
+        columns:
+          - name: titre
+            data_type: STRING
+
+          - name: r__alisateur_s_
+            data_type: STRING
+
+          - name: ann__e_de_production
+            data_type: INTEGER
+
+          - name: groupe_de_nationalit__2
+            data_type: STRING
+
+          - name: ann__e_de_derni__re_diffusion
+            data_type: INTEGER
+
+          - name: nb__de_diffusions
+            data_type: INTEGER
+
+          - name: dont_en_premi__re_partie_de_soir__e
+            data_type: INTEGER
+
+          - name: nb__moyen_de_diffusions_par_an
+            data_type: INTEGER
+
+          - name: titre_norm
+            data_type: STRING
+
+          - name: imdb_genres_brut
+            data_type: STRING
+
+          - name: genre
+            data_type: STRING
+
+          - name: match_score
+            data_type: FLOAT
+
+          - name: imdb_tconst
+            data_type: STRING
+
+          - name: imdb_title
+            data_type: STRING
+
+          - name: imdb_year
+            data_type: STRING
+
+          - name: match_field
+            data_type: STRING
